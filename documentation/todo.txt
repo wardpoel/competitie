@@ -1,0 +1,11 @@
+Cleanup
+- check new views for pbsafe
+- check if xxx-button is needed in components
+
+Export contexts and hooks from file which provides the context
+
+Klikken op een team uit de ranking ... scherm met matches en wie in team speelt/kan spelen? not the usual teamview (is too confusing because it is the same view)
+
+ProvinceList has pending with province in ... niet goed, beter altijd en pending en selected props gebruiken
+
+Pending Spinner in division > ranking (juist sticky nav gemaakt)
