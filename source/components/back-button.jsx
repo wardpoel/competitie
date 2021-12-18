@@ -8,7 +8,9 @@ export default function BackButton(props) {
 
 	function handleClick(event) {
 		onClick?.(event);
-		history.back();
+		if (event.defaultPrevented == false) {
+			history.back();
+		}
 	}
 
 	return <IconButton icon={ArrowBackIcon} ripples={false} onClick={handleClick} />;

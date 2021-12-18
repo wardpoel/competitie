@@ -3,6 +3,7 @@ import Routes from 'react-sprout';
 
 import { Redirect, searchToObject } from 'react-sprout';
 
+import Error from './routes/error.jsx';
 import Home from './routes/home.jsx';
 import Team, { fetchTeam } from './routes/team.jsx';
 import Club, { fetchClub } from './routes/club.jsx';
@@ -29,44 +30,45 @@ import DivisionsRegional from './routes/divisions/regional.jsx';
 import DivisionsProvincial from './routes/divisions/provincial.jsx';
 
 export default Routes(
-	<Home>
-		<Clubs path="clubs" data={fetchClubs} />
-		<Players path="players" data={fetchPlayers} />
-		<Divisions path="divisions" data={fetchDivisions}>
-			<DivisionsRoot path="." />
-			<DivisionsIndex path="*/" />
-			<DivisionsRegional path="regional/" />
-			<DivisionsProvincial path="provincial/" />
-		</Divisions>
+	<Error>
+		<Home>
+			<Clubs path="clubs" data={fetchClubs} />
+			<Players path="players" data={fetchPlayers} />
+			<Divisions path="divisions" data={fetchDivisions}>
+				<DivisionsRoot path="." />
+				<DivisionsIndex path="*/" />
+				<DivisionsRegional path="regional/" />
+				<DivisionsProvincial path="provincial/" />
+			</Divisions>
 
-		<Club path="clubs/:clubId" data={fetchClub}>
-			<ClubInfo path="info" />
-			<ClubTeams path="teams" data={fetchClubTeams} />
-			<ClubPlayers path="players" data={fetchClubPlayers} />
-			<ClubMatches path="matches" data={fetchClubMatches} />
-			<Redirect path="." to="info" />
-		</Club>
-		<Division path="divisions/:divisionId">
-			<DivisionRanking path="ranking" data={fetchDivisionRanking} />
-			<DivisionMatches path="matches" data={fetchDivisionMatches} />
-			<Redirect path="." to="matches" />
-		</Division>
-		<Team path="clubs/:clubId/teams/:divisionId/:teamLetter" data={fetchTeam}>
-			<TeamMatches path="matches" data={fetchTeamMatches} />
-			<TeamRanking path="ranking" data={fetchTeamRanking} />
-			<Redirect path="." to="matches" />
-		</Team>
-		<Match path="matches/*" data={fetchMatch} />
-		{/* <Match path="matches/:divisionId/:matchId" data={fetchMatch} /> */}
-		<Player path="players/:playerId" data={fetchPlayer}>
-			<PlayerResults path="results" />
-			<PlayerMatches path="matches" />
-		</Player>
-		<Province path="provinces/:provinceUrl/clubs" data={fetchProvinceClubs} />
+			<Club path="clubs/:clubId" data={fetchClub}>
+				<ClubInfo path="info" />
+				<ClubTeams path="teams" data={fetchClubTeams} />
+				<ClubPlayers path="players" data={fetchClubPlayers} />
+				<ClubMatches path="matches" data={fetchClubMatches} />
+				<Redirect path="." to="info" />
+			</Club>
+			<Division path="divisions/:divisionId">
+				<DivisionRanking path="ranking" data={fetchDivisionRanking} />
+				<DivisionMatches path="matches" data={fetchDivisionMatches} />
+				<Redirect path="." to="matches" />
+			</Division>
+			<Team path="clubs/:clubId/teams/:divisionId/:teamLetter" data={fetchTeam}>
+				<TeamMatches path="matches" data={fetchTeamMatches} />
+				<TeamRanking path="ranking" data={fetchTeamRanking} />
+				<Redirect path="." to="matches" />
+			</Team>
+			<Match path="matches/*" data={fetchMatch} />
+			<Player path="players/:playerId" data={fetchPlayer}>
+				<PlayerResults path="results" />
+				<PlayerMatches path="matches" />
+			</Player>
+			<Province path="provinces/:provinceUrl/clubs" data={fetchProvinceClubs} />
 
-		<Redirect path="/" to="clubs" />
-		<Redirect path="players/:playerId" to="players/:playerId/results" />
-	</Home>,
+			<Redirect path="/" to="clubs" />
+			<Redirect path="players/:playerId" to="players/:playerId/results" />
+		</Home>
+	</Error>,
 	{
 		search: searchToObject,
 	},
