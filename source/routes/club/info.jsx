@@ -69,15 +69,20 @@ export default function ClubInfo(props) {
 
 	let bulletsRender;
 	if (club.venues.length > 1) {
+		// A bug in safari makes absolute positioned elements inside flex or grid containers
+		// not follow the justification and alignment rules of the container
+		// So we add an extra element to put the bullets on the bottom
 		bulletsRender = (
-			<div className="absolute m-6 self-x-center self-y-end">
-				<Bullets length={club.venues.length} value={selectedIndex} onChange={handleBulletChange} />
+			<div className="absolute inset-0 flex items-end justify-center p-6 pointer-events-none">
+				<div className="pointer-events-auto">
+					<Bullets length={club.venues.length} value={selectedIndex} onChange={handleBulletChange} />
+				</div>
 			</div>
 		);
 	}
 
 	return (
-		<div className="grid bg-white">
+		<div className="relative grid bg-white">
 			<div ref={venueCardsContainerRef} className="grid overflow-x-auto auto-cols-min snap snap-x snap-mandatory">
 				<div
 					className="inline-flex items-start justify-center h-full min-w-full gap-8"
