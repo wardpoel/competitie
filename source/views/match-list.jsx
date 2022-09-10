@@ -12,7 +12,7 @@ export default function MatchList(props) {
 	let { club, team, matches, pending, selected, onSelect } = props;
 
 	let matchListitemsRender = [];
-	let matchesByCategoryColor = groupBy(matches, m => color(m.division.category, m.division.name));
+	let matchesByCategoryColor = groupBy(matches, m => color(m.division.name));
 	let matchIconIsVisible = Object.keys(matchesByCategoryColor).length > 1;
 	for (let color in matchesByCategoryColor) {
 		matchesByCategoryColor[color].map(function (match) {

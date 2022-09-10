@@ -1,5 +1,4 @@
 import React from 'react';
-import { useNavigate, useHistory } from 'react-sprout';
 import BackButton from '../components/back-button';
 import useEventListener from '../hooks/use-event-listener';
 

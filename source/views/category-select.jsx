@@ -26,18 +26,18 @@ const backgroundClasses = {
 };
 
 export default function CategorySelect(props) {
-	let { categoryIds = [1, 2, 13, 3] } = props;
+	let { categories = ['men', 'women', 'youth', 'veterans'] } = props;
 
 	let [value, onChange] = useValue(props);
 
-	let iconsRender = categoryIds.map(function (categoryId) {
-		let selected = categoryId == value;
+	let iconsRender = categories.map(function (category) {
+		let selected = category == value;
 
 		function handleClick(event) {
-			onChange?.(event, categoryId);
+			onChange?.(event, category);
 		}
 
-		let iconColor = color(categoryId);
+		let iconColor = color(category);
 
 		let className = classnames(
 			'relative grid p-2 rounded-full items-x-center items-y-center focus:outline-none focus-visible:ring-2 focus-visible:ring-inset',
@@ -50,7 +50,7 @@ export default function CategorySelect(props) {
 		);
 
 		return (
-			<button key={categoryId} className={className} onClick={handleClick}>
+			<button key={category} className={className} onClick={handleClick}>
 				<div className={indicatorClassName} />
 				<TagIcon color={iconColor} />
 			</button>

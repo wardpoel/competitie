@@ -20,7 +20,7 @@
 		"react": "^18.0.0-alpha-3c4c1c470-20211021",
 		"react-dom": "^18.0.0-alpha-3c4c1c470-20211021",
 		"react-sprout": "^0.0.50-alpha-j9fu9majnjcs",
-		"vttl-api": "^1.3.1"
+		"vttl-api": "^1.3.2"
 	},
 	"devDependencies": {
 		"autoprefixer": "^10.4.0",

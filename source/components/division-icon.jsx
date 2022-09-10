@@ -7,5 +7,5 @@ import color from '../vttl/color.js';
 export default function DivisionIcon(props) {
 	let { division } = props;
 
-	return <TagIcon color={color(division.category, division.name)} />;
+	return <TagIcon color={color(division.name)} />;
 }

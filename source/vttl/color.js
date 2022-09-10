@@ -1,22 +1,21 @@
-const colors = {
-	1: 'sky',
-	2: 'fuchsia',
-	3: 'amber',
-	4: 'amber',
-	13: 'green',
-};
+let colors = [
+	['beker', 'violet'],
+	['vrije tijd', 'red'],
+	['veterans', 'amber'],
+	['veteranen', 'amber'],
+	['youth', 'green'],
+	['jeugd', 'green'],
+	['women', 'fuchsia'],
+	['dames', 'fuchsia'],
+	['men', 'sky'],
+	['heren', 'sky'],
+];
 
-export default function color(categoryId, description) {
-	if (description) {
-		let normalizedDescription = description.toLowerCase();
-		if (normalizedDescription.includes('beker')) {
-			return 'violet';
-		}
-
-		if (normalizedDescription.includes('vrije tijd')) {
-			return 'red';
-		}
+export default function color(description) {
+	let text = description.toLowerCase();
+	for (let [match, color] of colors) {
+		if (text.includes(match)) return color;
 	}
 
-	return colors[categoryId] ?? 'zinc';
+	return 'zinc';
 }

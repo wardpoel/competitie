@@ -1,7 +1,7 @@
 import React, { createContext, useContext } from 'react';
 import { useRef, useState, Fragment } from 'react';
 import { useData, useSplat, useParams, useHistory, useSearch } from 'react-sprout';
-import { getMembers, getClubs } from 'vttl-api';
+import { getMembers, getClubs, getCategories } from 'vttl-api';
 
 import Tabs, { Tab } from '../components/tabs.jsx';
 import List, { Listitem, ListitemSubtext, ListitemText } from '../components/list.jsx';
@@ -14,6 +14,7 @@ import FitnessCenterIcon from '../icons/fitness-center.jsx';
 
 import toTitleCase from '../utilities/string/to-title-case.js';
 import sort from '../utilities/array/sort-by.js';
+import categoryDescription from '../vttl/category/description.js';
 import classnames from '../utilities/string/classnames.js';
 import Avatar from '../components/avatar.jsx';
 
@@ -25,12 +26,13 @@ export function usePlayer() {
 
 export async function fetchPlayer(params) {
 	let club;
-	let players = {};
+	let players = [];
 
-	for (let categoryId of [1, 2]) {
+	let categories = await getCategories({ ShortNameSearch: 'ALL' });
+	for (let category of categories) {
 		let [player] = await getMembers({
 			UniqueIndex: params.playerId,
-			PlayerCategory: categoryId,
+			PlayerCategory: category.id,
 			RankingPointsInformation: true,
 			WithResults: true,
 		});
@@ -40,7 +42,9 @@ export async function fetchPlayer(params) {
 			}
 
 			player.club = club;
-			players[categoryId] = player;
+			player.category = category;
+
+			players.push(player);
 		}
 	}
 
@@ -52,18 +56,20 @@ export default function Player(props) {
 	let mainRef = useRef();
 	let players = useData();
 	let history = useHistory();
-	let categoryId = players[search.categoryId] ? search.categoryId : 1;
-	let categoryIds = Object.keys(players);
-	let player = players[categoryId];
+
+	let category = search.category ?? 'men';
+	let categories = players.map(player => categoryDescription(player.category));
+	let player = players.find((player, index) => categories[index] === category);
+
 	let [tab = 'results'] = useSplat();
 
 	function handleTabChange(event, tab) {
 		mainRef.current.focus();
-		history.navigate(`${tab}?categoryId=${categoryId}`, { replace: true });
+		history.navigate(`${tab}?category=${category}`, { replace: true });
 	}
 
 	function handleCategoryChange(event, value) {
-		history.navigate(`?categoryId=${value}`, { sticky: true, replace: true });
+		history.navigate(`?category=${value}`, { sticky: true, replace: true });
 	}
 
 	let titleRender = `${toTitleCase(player.firstname)} ${toTitleCase(player.lastname)}`;
@@ -87,10 +93,10 @@ export default function Player(props) {
 	}
 
 	let categorySelectRender;
-	if (categoryIds.length > 1) {
+	if (players.length > 1) {
 		categorySelectRender = (
 			<div className="z-20 p-2 bg-zinc-900 bg-gradient-to-b from-zinc-800 to-zinc-900 shadow-outer pb-2-safe">
-				<CategorySelect defaultValue={categoryId} categoryIds={categoryIds} onChange={handleCategoryChange} />
+				<CategorySelect categories={categories} defaultValue={category} onChange={handleCategoryChange} />
 			</div>
 		);
 	}

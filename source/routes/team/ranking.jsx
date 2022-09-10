@@ -9,7 +9,6 @@ import Avatar from '../../components/avatar.jsx';
 
 import { useTeam } from '../team.jsx';
 
-import color from '../../vttl/color.js';
 import letter from '../../vttl/teams/letter.js';
 
 export async function fetchTeamRanking(params) {

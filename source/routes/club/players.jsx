@@ -2,7 +2,7 @@ import React from 'react';
 
 import { useState } from 'react';
 import { useData, useHistory, useSearch, usePending } from 'react-sprout';
-import { getMembers } from 'vttl-api';
+import { getMembers, getCategories } from 'vttl-api';
 
 import List, { Listitem, ListitemText, ListitemSubtext, ListitemSpinner } from '../../components/list.jsx';
 import Avatar from '../../components/avatar.jsx';
@@ -11,8 +11,19 @@ import CategorySelect from '../../views/category-select.jsx';
 
 import toTitleCase from '../../utilities/string/to-title-case.js';
 
-export function fetchClubPlayers(params, splat, search) {
-	return getMembers({ Club: params.clubId, PlayerCategory: search.category ?? 1 });
+const filters = {
+	men: category => category.shortname === 'ALL' && category.ranking == '1',
+	women: category => category.shortname === 'ALL' && category.ranking == '2',
+	youth: category => category.shortname === 'YOU' && category.ranking == '1',
+	veterans: category => category.shortname === 'VET' && category.ranking == '1',
+};
+
+export async function fetchClubPlayers(params, splat, search) {
+	let categories = await getCategories();
+	let category = search.category ?? 'men';
+	let categoryResult = categories.find(filters[category]);
+
+	return await getMembers({ Club: params.clubId, PlayerCategory: categoryResult.id });
 }
 
 export default function ClubPlayers() {
@@ -21,7 +32,7 @@ export default function ClubPlayers() {
 	let pending = usePending();
 	let [selectedPlayer, setSelectedPlayer] = useState();
 
-	let categoryId = search.category ?? 1;
+	let category = search.category ?? 'men';
 
 	function handleCategoryChange(event, value) {
 		history.navigate(`?category=${value}`, { replace: true });
@@ -29,7 +40,7 @@ export default function ClubPlayers() {
 
 	function handlePlayerSelect(event, player) {
 		setSelectedPlayer(player);
-		history.navigate(`/players/${player.id}/results?categoryId=${categoryId}`, {
+		history.navigate(`/players/${player.id}/results?category=${category}`, {
 			sticky: true,
 			state: { club: true },
 		});
@@ -38,15 +49,10 @@ export default function ClubPlayers() {
 	return (
 		<div className="grid grid-cols-1 grid-rows-[minmax(0,1fr),auto]">
 			<Suspense>
-				<PlayersList
-					key={categoryId}
-					pending={pending}
-					selected={selectedPlayer}
-					onSelect={handlePlayerSelect}
-				/>
+				<PlayersList key={category} pending={pending} selected={selectedPlayer} onSelect={handlePlayerSelect} />
 			</Suspense>
 			<div className="z-20 p-2 bg-zinc-900 bg-gradient-to-b from-zinc-800 to-zinc-900 shadow-outer pb-2-safe">
-				<CategorySelect defaultValue={categoryId} onChange={handleCategoryChange} />
+				<CategorySelect defaultValue={category} onChange={handleCategoryChange} />
 			</div>
 		</div>
 	);
