@@ -12,7 +12,7 @@ let colors = [
 ];
 
 export default function color(description) {
-	let text = description.toLowerCase();
+	let text = description?.toLowerCase() ?? '';
 	for (let [match, color] of colors) {
 		if (text.includes(match)) return color;
 	}
