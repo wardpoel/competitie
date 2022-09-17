@@ -9,12 +9,10 @@ import Suspense from '../views/suspense.jsx';
 import BackButton from '../components/back-button';
 import ApplicationBar, { ApplicationBarTitle } from '../components/application-bar';
 
-import InfoIcon from '../icons/info.jsx';
 import PeopleIcon from '../icons/people.jsx';
 import WidgetsIcon from '../icons/widgets.jsx';
 import PlaceIcon from '../icons/place.jsx';
 import FitnessCenterIcon from '../icons/fitness-center.jsx';
-import AlternateEmailIcon from '../icons/alternate-email.jsx';
 
 const key = 'pk.eyJ1Ijoic3ViaGVybyIsImEiOiJja3BycjNudTAwMmZvMnZubzloeG1seGwwIn0.jhWK_gta_okso5dlvT787Q';
 

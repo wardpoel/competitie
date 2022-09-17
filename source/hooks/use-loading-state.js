@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 
 import useMountedState from './use-mounted-state.js';
 import useImmutableCallback from './use-immutable-callback.js';

@@ -3,7 +3,6 @@ import { useMemo, useState } from 'react';
 import { useData, useSplat, useHistory, usePending } from 'react-sprout';
 
 import List, { Listitem, ListitemSpinner, ListitemText } from '../../components/list.jsx';
-import TagIcon from '../../components/tag-icon.jsx';
 import Suspense from '../../views/suspense.jsx';
 import BackButton from '../../components/back-button.jsx';
 import ApplicationBar, { ApplicationBarTitle } from '../../components/application-bar.jsx';
@@ -12,13 +11,26 @@ import sort from '../../vttl/divisions/sort.js';
 import groupBy from '../../utilities/array/group-by.js';
 import toSentenceCase from '../../utilities/string/to-sentence-case.js';
 import DivisionIcon from '../../components/division-icon.jsx';
+import FavoriteIcon from '../../components/favorite-icon.jsx';
+import useLocalStorageState from '../../hooks/use-local-storage-state.js';
 
 export default function Index() {
 	let splat = useSplat();
 	let history = useHistory();
 	let pending = usePending();
+	let [favoriteDivisions, setFavoriteDivisions] = useLocalStorageState('favoritesDivisions', []);
 	let [selectedDivision, setSelectedDivision] = useState();
 	let divisionIndexName = toSentenceCase(splat[splat.length - 1]);
+
+	function handleFavoriteChange(event, division, favorite) {
+		let { id } = division;
+
+		if (favorite) {
+			setFavoriteDivisions([...favoriteDivisions, division]);
+		} else {
+			setFavoriteDivisions(favoriteDivisions.filter(division => division.id != id));
+		}
+	}
 
 	function handleDivisionSelect(event, division) {
 		setSelectedDivision(division);
@@ -35,7 +47,13 @@ export default function Index() {
 			</ApplicationBar>
 			<div className="overflow-y-auto focus:outline-none">
 				<Suspense>
-					<DivisionsList pending={pending} selected={selectedDivision} onSelect={handleDivisionSelect} />
+					<DivisionsList
+						pending={pending}
+						selected={selectedDivision}
+						favorites={favoriteDivisions}
+						onFavoriteChange={handleFavoriteChange}
+						onSelect={handleDivisionSelect}
+					/>
 				</Suspense>
 			</div>
 		</div>
@@ -43,7 +61,7 @@ export default function Index() {
 }
 
 function DivisionsList(props) {
-	let { pending, selected, onSelect } = props;
+	let { pending, selected, favorites, onFavoriteChange, onSelect } = props;
 
 	let splat = useSplat();
 	let divisions = useData();
@@ -57,13 +75,26 @@ function DivisionsList(props) {
 	}, [divisions]);
 
 	let listitemsRender = divisionsByPath[divisionsPath]?.map(function (division) {
+		let { id } = division;
 		function handleClick(event) {
 			onSelect?.(event, division);
 		}
 
-		let listitemSpinnerRender;
+		let listitemSpinnerOrFavoriteRender;
 		if (pending && selected === division) {
-			listitemSpinnerRender = <ListitemSpinner />;
+			listitemSpinnerOrFavoriteRender = <ListitemSpinner />;
+		} else {
+			let favorite = favorites.find(division => division.id === id);
+			function handleFavoriteChange(event, favorite) {
+				onFavoriteChange?.(event, division, favorite);
+			}
+			function handleIconClick(event) {
+				event.stopPropagation();
+			}
+
+			listitemSpinnerOrFavoriteRender = (
+				<FavoriteIcon defaultValue={favorite} onChange={handleFavoriteChange} onClick={handleIconClick} />
+			);
 		}
 
 		return (
@@ -71,7 +102,7 @@ function DivisionsList(props) {
 				<div className="grid gap-4 grid-cols-[auto,minmax(0,1fr),auto] items-center">
 					<DivisionIcon division={division} />
 					<ListitemText>{division.shortname}</ListitemText>
-					{listitemSpinnerRender}
+					{listitemSpinnerOrFavoriteRender}
 				</div>
 			</Listitem>
 		);

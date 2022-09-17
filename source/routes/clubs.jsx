@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { useState, useMemo } from 'react';
-import { usePending, Link, useData, useSearch, useResult, useHistory } from 'react-sprout';
+import { usePending, useData, useSearch, useResult, useHistory } from 'react-sprout';
 import { getClubs } from 'vttl-api';
 
 import List, { Listitem, ListitemText, ListitemSubtext, ListitemSpinner } from '../components/list.jsx';
@@ -74,7 +74,6 @@ export default function Clubs() {
 					<div className="flex gap-4">
 						<ApplicationBarTitle>Clubs</ApplicationBarTitle>
 					</div>
-
 					<form className="grid" onSubmit={handleSearchFormSubmit}>
 						<SearchInput value={searchValue} onChange={handleSearchInputChange} />
 					</form>
