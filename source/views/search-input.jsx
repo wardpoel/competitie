@@ -1,8 +1,8 @@
 import React from 'react';
 import { useRef } from 'react';
 
-import CloseIcon from '../icons/close.jsx';
-import SearchIcon from '../icons/search.jsx';
+import { CloseIcon, SearchIcon } from 'material-icons';
+
 import IconButton from '../components/icon-button.jsx';
 
 import useValue from '../hooks/use-value.js';

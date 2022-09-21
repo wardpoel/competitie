@@ -8,8 +8,8 @@ import Tabs, { Tab } from '../components/tabs';
 import Suspense from '../views/suspense';
 import BackButton from '../components/back-button';
 import ApplicationBar, { ApplicationBarTitle } from '../components/application-bar';
-import EmojiEventsIcon from '../icons/emoji-events.jsx';
-import FitnessCenterIcon from '../icons/fitness-center.jsx';
+
+import { EmojiEventsIcon, FitnessCenterIcon } from 'material-icons';
 
 export let TeamContext = createContext();
 

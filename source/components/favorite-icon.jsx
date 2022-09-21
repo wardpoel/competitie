@@ -1,6 +1,6 @@
 import React from 'react';
 
-import StarIcon from '../icons/star.jsx';
+import { StarIcon } from 'material-icons';
 
 import useValue from '../hooks/use-value';
 

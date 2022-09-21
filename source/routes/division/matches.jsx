@@ -7,8 +7,8 @@ import { useSearch, useData, useResult, useHistory, usePending } from 'react-spr
 import Suspense from '../../views/suspense.jsx';
 import MatchList from '../../views/match-list.jsx';
 import IconButton from '../../components/icon-button.jsx';
-import ChevronLeftIcon from '../../icons/chevron-left.jsx';
-import ChevronRightIcon from '../../icons/chevron-right.jsx';
+
+import { ChevronLeftIcon, ChevronRightIcon } from 'material-icons';
 
 import { useSetDivisionName } from '../division.jsx';
 

@@ -8,6 +8,7 @@ import Tabs, { Tab } from '../../components/tabs.jsx';
 import useLocalStorageState from '../../hooks/use-local-storage-state.js';
 import FavoriteIcon from '../../components/favorite-icon.jsx';
 import DivisionIcon from '../../components/division-icon.jsx';
+import { PublicIcon, StarIcon } from 'material-icons';
 
 export default function Divisions() {
 	let history = useHistory();
@@ -111,8 +112,8 @@ export default function Divisions() {
 				<ApplicationBarTitle>Divisions</ApplicationBarTitle>
 				<div className="-mx-4 -mb-4">
 					<Tabs value={tab} onChange={handleTabChange}>
-						<Tab label="all" />
-						<Tab label="favorites" />
+						<Tab icon={PublicIcon} label="all" />
+						<Tab icon={StarIcon} label="favorites" />
 					</Tabs>
 				</div>
 			</ApplicationBar>

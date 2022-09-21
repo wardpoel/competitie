@@ -4,24 +4,27 @@ import { DateTime } from 'luxon';
 import { useState } from 'react';
 import { getMatches } from 'vttl-api';
 import { useData, useHistory, usePending } from 'react-sprout';
+import {
+	NearMeIcon,
+	PhoneIcon,
+	ScheduleIcon,
+	SensorDoorIcon,
+	CalendarTodayIcon,
+	InfoIcon,
+	BarChartIcon,
+} from 'material-icons';
 
 import List, { Listitem, ListitemSpinner, ListitemText } from '../components/list.jsx';
+import Avatar from '../components/avatar.jsx';
 import BackButton from '../components/back-button';
-import NearMeIcon from '../icons/near-me.jsx';
-import PhoneIcon from '../icons/phone.jsx';
-import ScheduleIcon from '../icons/schedule.jsx';
-import SensorDoorIcon from '../icons/sensor-door';
-import CalendarTodayIcon from '../icons/calendar-today.jsx';
-import ApplicationBar, { ApplicationBarTitle } from '../components/application-bar';
-import InfoIcon from '../icons/info';
 import ScoreBadge from '../components/score-badge.jsx';
+import IconButton from '../components/icon-button.jsx';
+
+import ApplicationBar, { ApplicationBarTitle } from '../components/application-bar';
+
 import score from '../vttl/score.js';
 import letter from '../vttl/teams/letter.js';
-import Avatar from '../components/avatar.jsx';
-
 import toTitleCase from '../utilities/string/to-title-case.js';
-import IconButton from '../components/icon-button.jsx';
-import BarChartIcon from '../icons/bar-chart.jsx';
 
 export async function fetchMatch(params, splat) {
 	if (splat.length === 1) {

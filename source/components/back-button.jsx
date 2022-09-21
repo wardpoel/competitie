@@ -1,7 +1,7 @@
 import React from 'react';
 
 import IconButton from './icon-button.jsx';
-import ArrowBackIcon from '../icons/arrow-back.jsx';
+import { ArrowBackIcon } from 'material-icons';
 
 export default function BackButton(props) {
 	let { onClick } = props;

@@ -9,8 +9,8 @@ import { useData, useHistory, usePending, useResult, useSearch } from 'react-spr
 import Suspense from '../../views/suspense';
 import MatchList from '../../views/match-list';
 import IconButton from '../../components/icon-button';
-import ChevronLeftIcon from '../../icons/chevron-left';
-import ChevronRightIcon from '../../icons/chevron-right';
+
+import { ChevronLeftIcon, ChevronRightIcon } from 'material-icons';
 
 export async function fetchClubMatches(params, splat, search) {
 	let date = search.date ? DateTime.fromFormat(search.date, 'dd-LL-yyyy') : DateTime.local();

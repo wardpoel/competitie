@@ -9,10 +9,7 @@ import Suspense from '../views/suspense.jsx';
 import BackButton from '../components/back-button';
 import ApplicationBar, { ApplicationBarTitle } from '../components/application-bar';
 
-import PeopleIcon from '../icons/people.jsx';
-import WidgetsIcon from '../icons/widgets.jsx';
-import PlaceIcon from '../icons/place.jsx';
-import FitnessCenterIcon from '../icons/fitness-center.jsx';
+import { PeopleIcon, WidgetsIcon, PlaceIcon, FitnessCenterIcon } from 'material-icons';
 
 const key = 'pk.eyJ1Ijoic3ViaGVybyIsImEiOiJja3BycjNudTAwMmZvMnZubzloeG1seGwwIn0.jhWK_gta_okso5dlvT787Q';
 

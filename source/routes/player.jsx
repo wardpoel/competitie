@@ -1,22 +1,21 @@
-import React, { createContext, useContext } from 'react';
-import { useRef, useState, Fragment } from 'react';
+import React, { createContext, useContext, useRef, useState, Fragment } from 'react';
+
 import { useData, useSplat, useParams, useHistory, useSearch } from 'react-sprout';
 import { getMembers, getClubs, getCategories } from 'vttl-api';
 
 import Tabs, { Tab } from '../components/tabs.jsx';
 import List, { Listitem, ListitemSubtext, ListitemText } from '../components/list.jsx';
+import Avatar from '../components/avatar.jsx';
 import BackButton from '../components/back-button';
 import ApplicationBar, { ApplicationBarTitle } from '../components/application-bar';
 import CategorySelect from '../views/category-select.jsx';
-import InfoIcon from '../icons/info.jsx';
-import BarChartIcon from '../icons/bar-chart.jsx';
-import FitnessCenterIcon from '../icons/fitness-center.jsx';
 
-import toTitleCase from '../utilities/string/to-title-case.js';
+import { InfoIcon, BarChartIcon, FitnessCenterIcon } from 'material-icons';
+
 import sort from '../utilities/array/sort-by.js';
-import categoryDescription from '../vttl/category/description.js';
 import classnames from '../utilities/string/classnames.js';
-import Avatar from '../components/avatar.jsx';
+import toTitleCase from '../utilities/string/to-title-case.js';
+import categoryDescription from '../vttl/category/description.js';
 
 export let playerContext = createContext();
 

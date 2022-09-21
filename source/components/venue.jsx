@@ -1,11 +1,7 @@
 import React from 'react';
 
 import List, { Listitem, ListitemText } from './list.jsx';
-import InfoIcon from '../icons/info.jsx';
-import PlaceIcon from '../icons/place.jsx';
-import PhoneIcon from '../icons/phone.jsx';
-import NearMeIcon from '../icons/near-me.jsx';
-import SensorDoorIcon from '../icons/sensor-door.jsx';
+import { InfoIcon, PlaceIcon, PhoneIcon, NearMeIcon, SensorDoorIcon } from 'material-icons';
 
 export default function Venue(props) {
 	let { venue } = props;

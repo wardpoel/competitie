@@ -5,12 +5,14 @@ import { useHistory, useSplat, useLocation } from 'react-sprout';
 
 import NavigationBar, { NavigationBarItem } from '../components/navigation-bar.jsx';
 
-import PeopleIcon from '../icons/people.jsx';
-import ExtensionIcon from '../icons/extension.jsx';
-import MapsHomeWorkIcon from '../icons/maps-home-work.jsx';
-import FitnessCenterIcon from '../icons/fitness-center.jsx';
-import PublicIcon from '../icons/public.jsx';
-import SensorDoorIcon from '../icons/sensor-door.jsx';
+import {
+	PeopleIcon,
+	ExtensionIcon,
+	MapsHomeWorkIcon,
+	FitnessCenterIcon,
+	PublicIcon,
+	SensorDoorIcon,
+} from 'material-icons';
 
 export default function Home(props) {
 	let { children } = props;
