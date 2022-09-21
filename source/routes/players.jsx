@@ -4,6 +4,7 @@ import { useData, useSearch, useHistory, usePending } from 'react-sprout';
 import { getMembers } from 'vttl-api';
 
 import List, { Listitem, ListitemSpinner, ListitemSubtext, ListitemText } from '../components/list.jsx';
+import Avatar from '../components/avatar.jsx';
 import Suspense from '../views/suspense.jsx';
 import SearchInput from '../views/search-input.jsx';
 import FavoriteIcon from '../components/favorite-icon.jsx';
@@ -149,17 +150,16 @@ function PlayersList(props) {
 			if (pending && player === selected) {
 				listitemDecorationRender = <ListitemSpinner />;
 			} else {
-				listitemDecorationRender = <div>{ranking}</div>;
+				listitemDecorationRender = (
+					<FavoriteIcon defaultValue={favorite} onChange={handleFavoriteChange} onClick={handleIconClick} />
+				);
 			}
 
 			return (
 				<Listitem key={id} role="link" onClick={handleListitemClick}>
 					<div className="grid gap-4 grid-cols-[auto,minmax(0,1fr),auto] items-y-center">
-						<FavoriteIcon
-							defaultValue={favorite}
-							onChange={handleFavoriteChange}
-							onClick={handleIconClick}
-						/>
+						<Avatar>{ranking}</Avatar>
+
 						<div className="flex flex-col">
 							<ListitemText>{name}</ListitemText>
 							<ListitemSubtext>{id}</ListitemSubtext>
