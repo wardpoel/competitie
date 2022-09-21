@@ -1,5 +1,3 @@
-import React from 'react';
-
 import TagIcon from './tag-icon.jsx';
 
 import color from '../vttl/color.js';

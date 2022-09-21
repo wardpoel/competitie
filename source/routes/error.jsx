@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { useNavigate, useLocation } from 'react-sprout';
 
 import ErrorView from '../views/error.jsx';

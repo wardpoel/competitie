@@ -1,5 +1,3 @@
-import React from 'react';
-
 import Ripples from './ripples';
 
 import classnames from '../utilities/string/classnames';

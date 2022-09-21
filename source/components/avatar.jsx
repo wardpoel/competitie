@@ -1,4 +1,3 @@
-import React from 'react';
 import classnames from '../utilities/string/classnames';
 
 export default function Avatar(props) {

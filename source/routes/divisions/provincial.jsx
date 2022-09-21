@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { useHistory } from 'react-sprout';
 
 import BackButton from '../../components/back-button.jsx';

@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { useNavigate } from 'react-sprout';
 
 import List, { Listitem, ListitemText } from '../components/list.jsx';

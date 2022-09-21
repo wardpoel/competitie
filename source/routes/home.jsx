@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { useRef } from 'react';
 import { useHistory, useSplat, useLocation } from 'react-sprout';
 

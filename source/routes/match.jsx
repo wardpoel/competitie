@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { DateTime } from 'luxon';
 import { useState } from 'react';
 import { getMatches } from 'vttl-api';

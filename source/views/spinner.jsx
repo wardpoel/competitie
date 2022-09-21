@@ -1,4 +1,3 @@
-import React from 'react';
 import Spinner from '../components/spinner.jsx';
 
 export default function SpinnerView() {

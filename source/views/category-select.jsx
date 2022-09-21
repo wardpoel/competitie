@@ -1,5 +1,3 @@
-import React from 'react';
-
 import TagIcon from '../components/tag-icon.jsx';
 
 import useValue from '../hooks/use-value.js';

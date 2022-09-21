@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState } from 'react';
+import { useLayoutEffect, useState } from 'react';
 
 import { DateTime } from 'luxon';
 import { getMatches } from 'vttl-api';

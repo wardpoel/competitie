@@ -1,4 +1,3 @@
-import React from 'react';
 import BackButton from '../components/back-button';
 import useEventListener from '../hooks/use-event-listener';
 

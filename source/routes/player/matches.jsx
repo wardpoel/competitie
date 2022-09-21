@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { useState } from 'react';
 import { usePlayer } from '../player';
 import { useHistory, usePending, useSearch } from 'react-sprout';

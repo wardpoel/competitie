@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { StarIcon } from 'material-icons';
 
 import useValue from '../hooks/use-value';

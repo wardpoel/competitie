@@ -1,5 +1,3 @@
-import React from 'react';
-
 import Spinner from './spinner.jsx';
 
 import classnames from '../utilities/string/classnames.js';

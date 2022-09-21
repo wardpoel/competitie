@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 
 import { useRef, createContext } from 'react';
 import { getClubs } from 'vttl-api';

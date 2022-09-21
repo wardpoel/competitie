@@ -1,5 +1,3 @@
-import React from 'react';
-
 import useValue from '../hooks/use-value.js';
 
 import classnames from '../utilities/string/classnames.js';

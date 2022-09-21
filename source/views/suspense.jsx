@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Suspense as ReactSuspense } from 'react';
 
 import Spinner from './spinner.jsx';

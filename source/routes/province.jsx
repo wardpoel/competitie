@@ -1,4 +1,3 @@
-import React from 'react';
 import { useRef, useState, useMemo } from 'react';
 import { usePending, useData, useParams, useSearch, useHistory } from 'react-sprout';
 import { getClubs } from 'vttl-api';

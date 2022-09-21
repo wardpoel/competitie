@@ -1,5 +1,3 @@
-import React from 'react';
-
 import List, { Listitem, ListitemText, ListitemSpinner } from '../components/list';
 
 import provinces from '../vttl/provinces.js';

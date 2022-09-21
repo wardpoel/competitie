@@ -1,4 +1,3 @@
-import React from 'react';
 import { useRef } from 'react';
 
 import { CloseIcon, SearchIcon } from 'material-icons';

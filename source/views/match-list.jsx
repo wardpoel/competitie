@@ -1,5 +1,3 @@
-import React from 'react';
-
 import List, { Listitem, ListitemSpinner, ListitemText } from '../components/list';
 import TagIcon from '../components/tag-icon';
 import MatchBadge from '../components/match-badge.jsx';

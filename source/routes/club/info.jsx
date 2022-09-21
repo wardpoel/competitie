@@ -1,4 +1,3 @@
-import React from 'react';
 import { useRef, useState, useMemo, createRef } from 'react';
 import { useData } from 'react-sprout';
 

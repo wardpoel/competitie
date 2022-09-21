@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { useRef, createContext, useContext } from 'react';
 import { useSplat, useData, useHistory } from 'react-sprout';
 import { getClubs, getTeams } from 'vttl-api';

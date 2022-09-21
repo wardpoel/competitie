@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Fragment } from 'react';
 import { usePlayer } from '../player';
 

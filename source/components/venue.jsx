@@ -1,5 +1,3 @@
-import React from 'react';
-
 import List, { Listitem, ListitemText } from './list.jsx';
 import { InfoIcon, PlaceIcon, PhoneIcon, NearMeIcon, SensorDoorIcon } from 'material-icons';
 

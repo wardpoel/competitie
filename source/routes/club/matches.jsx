@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { useClub } from '../club';
 import { useState } from 'react';
 import { DateTime } from 'luxon';

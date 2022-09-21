@@ -1,4 +1,3 @@
-import React from 'react';
 import Router from './router.jsx';
 
 import Suspense from './views/suspense.jsx';

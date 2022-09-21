@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { useNavigate, useSearch } from 'react-sprout';
 
 import ApplicationBar, { ApplicationBarTitle } from '../../components/application-bar.jsx';

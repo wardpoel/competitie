@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { LocalOfferIcon } from 'material-icons';
 
 import classnames from '../utilities/string/classnames.js';

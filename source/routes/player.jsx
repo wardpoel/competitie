@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useRef } from 'react';
+import { createContext, useContext, useRef } from 'react';
 
 import { useData, useSplat, useHistory, useSearch } from 'react-sprout';
 import { getMembers, getClubs, getCategories } from 'vttl-api';

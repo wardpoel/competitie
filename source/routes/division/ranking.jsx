@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { useState, useLayoutEffect } from 'react';
 import { useHistory, useData, useParams, usePending } from 'react-sprout';
 import { getRanking } from 'vttl-api';

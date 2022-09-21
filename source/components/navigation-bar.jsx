@@ -1,4 +1,3 @@
-import React from 'react';
 import { useMemo, useContext, createContext } from 'react';
 
 import Ripples from './ripples.jsx';

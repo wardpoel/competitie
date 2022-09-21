@@ -1,4 +1,3 @@
-import React from 'react';
 import { useHistory } from 'react-sprout';
 
 import List, { Listitem, ListitemText } from '../../components/list.jsx';

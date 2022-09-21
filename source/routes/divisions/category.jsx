@@ -1,4 +1,3 @@
-import React from 'react';
 import { useMemo, useState } from 'react';
 import { useData, useSplat, useHistory, usePending } from 'react-sprout';
 

@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useRef } from 'react';
+import { createContext, useContext, useRef } from 'react';
 
 import { useState } from 'react';
 import { useSplat, useHistory } from 'react-sprout';

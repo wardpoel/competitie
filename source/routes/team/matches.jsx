@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import { useData, useHistory, usePending } from 'react-sprout';
 import { useTeam } from '../team.jsx';

@@ -1,5 +1,3 @@
-import React from 'react';
-
 import IconButton from './icon-button.jsx';
 import { ArrowBackIcon } from 'material-icons';
 

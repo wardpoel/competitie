@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { DateTime } from 'luxon';
 
 import score from '../vttl/score';

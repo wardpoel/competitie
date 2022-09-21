@@ -1,4 +1,3 @@
-import React from 'react';
 import { useRef, useMemo, useContext, forwardRef, createContext } from 'react';
 import { motion } from 'framer-motion';
 

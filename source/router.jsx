@@ -1,4 +1,3 @@
-import React from 'react';
 import Routes from 'react-sprout';
 
 import { Redirect, searchToObject } from 'react-sprout';

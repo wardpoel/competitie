@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate, usePending } from 'react-sprout';
 
 import List, { Listitem, ListitemSpinner, ListitemText } from '../components/list.jsx';
