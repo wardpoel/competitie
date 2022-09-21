@@ -24,7 +24,7 @@ import Division from './routes/division.jsx';
 import DivisionRanking, { fetchDivisionRanking } from './routes/division/ranking.jsx';
 import DivisionMatches, { fetchDivisionMatches } from './routes/division/matches.jsx';
 import Divisions, { fetchDivisions } from './routes/divisions.jsx';
-import DivisionsRoot from './routes/divisions/root.jsx';
+import DivisionsCategory from './routes/divisions/category.jsx';
 import DivisionsIndex from './routes/divisions/index.jsx';
 import DivisionsRegional from './routes/divisions/regional.jsx';
 import DivisionsProvincial from './routes/divisions/provincial.jsx';
@@ -35,8 +35,8 @@ export default Routes(
 			<Clubs path="clubs" data={fetchClubs} />
 			<Players path="players" data={fetchPlayers} />
 			<Divisions path="divisions" data={fetchDivisions}>
-				<DivisionsRoot path="." />
-				<DivisionsIndex path="*/" />
+				<DivisionsIndex path="." />
+				<DivisionsCategory path="*/" />
 				<DivisionsRegional path="regional/" />
 				<DivisionsProvincial path="provincial/" />
 			</Divisions>
