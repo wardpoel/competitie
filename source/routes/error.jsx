@@ -1,8 +1,10 @@
+import { Component } from 'react';
+
 import { useNavigate, useLocation } from 'react-sprout';
 
 import ErrorView from '../views/error.jsx';
 
-class ErrorBoundaryClass extends React.Component {
+class ErrorBoundaryClass extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {};

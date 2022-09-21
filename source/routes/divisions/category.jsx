@@ -1,16 +1,15 @@
 import { useMemo, useState } from 'react';
 import { useData, useSplat, useHistory, usePending } from 'react-sprout';
 
-import List, { Listitem, ListitemSpinner, ListitemText } from '../../components/list.jsx';
 import Suspense from '../../views/suspense.jsx';
 import BackButton from '../../components/back-button.jsx';
+import DivisionList from '../../views/division-list.jsx';
 import ApplicationBar, { ApplicationBarTitle } from '../../components/application-bar.jsx';
 
 import sort from '../../vttl/divisions/sort.js';
 import groupBy from '../../utilities/array/group-by.js';
 import toSentenceCase from '../../utilities/string/to-sentence-case.js';
-import DivisionIcon from '../../components/division-icon.jsx';
-import FavoriteIcon from '../../components/favorite-icon.jsx';
+
 import useLocalStorageState from '../../hooks/use-local-storage-state.js';
 
 export default function Category() {
@@ -60,56 +59,22 @@ export default function Category() {
 }
 
 function DivisionsList(props) {
-	let { pending, selected, favorites, onFavoriteChange, onSelect } = props;
-
 	let splat = useSplat();
-	let divisions = useData();
+	let divisionsAll = useData();
 	let divisionsPath = splat.join('/');
 	let divisionsByPath = useMemo(() => {
-		let result = groupBy(divisions, 'path');
+		let result = groupBy(divisionsAll, 'path');
 		for (let path in result) {
 			result[path] = sort(result[path]);
 		}
 		return result;
-	}, [divisions]);
+	}, [divisionsAll]);
 
-	let listitemsRender = divisionsByPath[divisionsPath]?.map(function (division) {
-		let { id } = division;
-		function handleClick(event) {
-			onSelect?.(event, division);
-		}
-
-		let listitemSpinnerOrFavoriteRender;
-		if (pending && selected === division) {
-			listitemSpinnerOrFavoriteRender = <ListitemSpinner />;
-		} else {
-			let favorite = favorites.find(division => division.id === id);
-			function handleFavoriteChange(event, favorite) {
-				onFavoriteChange?.(event, division, favorite);
-			}
-			function handleIconClick(event) {
-				event.stopPropagation();
-			}
-
-			listitemSpinnerOrFavoriteRender = (
-				<FavoriteIcon defaultValue={favorite} onChange={handleFavoriteChange} onClick={handleIconClick} />
-			);
-		}
-
-		return (
-			<Listitem key={division.id} onClick={handleClick}>
-				<div className="grid gap-4 grid-cols-[auto,minmax(0,1fr),auto] items-center">
-					<DivisionIcon division={division} />
-					<ListitemText>{division.shortname}</ListitemText>
-					{listitemSpinnerOrFavoriteRender}
-				</div>
-			</Listitem>
-		);
-	});
+	let divisions = divisionsByPath[divisionsPath];
 
 	return (
 		<div className="pb-0-safe">
-			<List>{listitemsRender}</List>
+			<DivisionList divisions={divisions} {...props} />
 		</div>
 	);
 }

@@ -3,7 +3,7 @@
 	"version": "0.0.1",
 	"description": "An application for the belgian table tennis competition",
 	"scripts": {
-		"lint": "eslint source/**/*.*",
+		"lint": "eslint source/**/*.{js,jsx}",
 		"build": "vite build",
 		"develop": "vite --host --force"
 	},
