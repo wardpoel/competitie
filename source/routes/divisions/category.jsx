@@ -17,7 +17,7 @@ export default function Category() {
 	let history = useHistory();
 	let pending = usePending();
 	let [favoriteDivisions, setFavoriteDivisions] = useLocalStorageState('favoritesDivisions', []);
-	let [selectedDivision, setSelectedDivision] = useState();
+	let [selected, setSelected] = useState();
 	let divisionIndexName = toSentenceCase(splat[splat.length - 1]);
 
 	function handleFavoriteChange(event, division, favorite) {
@@ -31,7 +31,7 @@ export default function Category() {
 	}
 
 	function handleDivisionSelect(event, division) {
-		setSelectedDivision(division);
+		setSelected(division);
 		history.navigate(`/divisions/${division.id}`, { sticky: true });
 	}
 
@@ -47,10 +47,10 @@ export default function Category() {
 				<Suspense>
 					<DivisionsList
 						pending={pending}
-						selected={selectedDivision}
+						selected={selected}
 						favorites={favoriteDivisions}
-						onFavoriteChange={handleFavoriteChange}
 						onSelect={handleDivisionSelect}
+						onFavoriteChange={handleFavoriteChange}
 					/>
 				</Suspense>
 			</div>
