@@ -129,7 +129,7 @@ function PlayersList(props) {
 		return <div className="grid w-full h-full items-x-center items-y-center">No players found</div>;
 	} else {
 		let playerListitemsRender = players.map(function (player) {
-			let { id, firstname, lastname, ranking, club } = player;
+			let { id, firstname, lastname, ranking } = player;
 
 			let name = `${toTitleCase(firstname)} ${toTitleCase(lastname)}`;
 			let favorite = favorites.find(player => player.id == id);

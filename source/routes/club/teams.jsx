@@ -6,7 +6,6 @@ import { getTeams } from 'vttl-api';
 import DivisionIcon from '../../components/division-icon.jsx';
 
 import List, { Listitem, ListitemText, ListitemSubtext, ListitemSpinner } from '../../components/list.jsx';
-import TagIcon from '../../components/tag-icon.jsx';
 
 import sortTeams from '../../vttl/teams/sort.js';
 

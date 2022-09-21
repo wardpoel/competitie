@@ -13,9 +13,8 @@ export default function DivisionsFavorites() {
 
 	let [selected, setSelected] = useState();
 	let [favoriteDivisions, setFavoriteDivisions] = useLocalStorageState('favoritesDivisions', []);
-	let [divisions, setDivisions] = useState(favoriteDivisions);
+	let [divisions] = useState(favoriteDivisions);
 
-	let render;
 	if (divisions.length === 0) {
 		return <div className="grid w-full h-full items-x-center items-y-center">No favorite divisions found</div>;
 	} else {

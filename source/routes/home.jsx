@@ -1,18 +1,11 @@
 import React from 'react';
 
-import { useRef, useState, useMemo, useContext } from 'react';
+import { useRef } from 'react';
 import { useHistory, useSplat, useLocation } from 'react-sprout';
 
 import NavigationBar, { NavigationBarItem } from '../components/navigation-bar.jsx';
 
-import {
-	PeopleIcon,
-	ExtensionIcon,
-	MapsHomeWorkIcon,
-	FitnessCenterIcon,
-	PublicIcon,
-	SensorDoorIcon,
-} from 'material-icons';
+import { PeopleIcon, ExtensionIcon, SensorDoorIcon } from 'material-icons';
 
 export default function Home(props) {
 	let { children } = props;

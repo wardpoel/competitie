@@ -25,7 +25,7 @@ export default function SearchInput(props) {
 		);
 	}
 
-	function handleSearchIconClick(event) {
+	function handleSearchIconClick() {
 		inputRef.current.select();
 	}
 

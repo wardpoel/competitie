@@ -4,7 +4,7 @@ import { useNavigate } from 'react-sprout';
 
 import List, { Listitem, ListitemText } from '../components/list.jsx';
 
-export default function DivisionsRoot(props) {
+export default function DivisionsRoot() {
 	let navigate = useNavigate();
 
 	function handleSuperClick() {

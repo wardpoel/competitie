@@ -14,7 +14,7 @@ const colorClasses = {
 	violet: 'text-violet-500',
 	fuchsia: 'text-fuchsia-500',
 };
-export default function List(props, outerRef) {
+export default function List(props) {
 	let { divider, children } = props;
 
 	let className = classnames('flex flex-col pt-3 pb-3 overflow-y-auto', divider && 'divide-y');

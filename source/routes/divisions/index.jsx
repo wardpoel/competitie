@@ -1,13 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-import { useHistory, useNavigate, usePending, useSearch } from 'react-sprout';
+import { useNavigate, useSearch } from 'react-sprout';
 
-import List, { Listitem, ListitemSpinner, ListitemText } from '../../components/list.jsx';
 import ApplicationBar, { ApplicationBarTitle } from '../../components/application-bar.jsx';
 import Tabs, { Tab } from '../../components/tabs.jsx';
-import useLocalStorageState from '../../hooks/use-local-storage-state.js';
-import FavoriteIcon from '../../components/favorite-icon.jsx';
-import DivisionIcon from '../../components/division-icon.jsx';
+
 import { PublicIcon, StarIcon } from 'material-icons';
 import DivisionsRoot from '../../views/divisions-root.jsx';
 import DivisionsFavorites from '../../views/divisions-favorites.jsx';

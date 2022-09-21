@@ -20,7 +20,7 @@ export async function fetchProvinceClubs(params) {
 	}
 }
 
-export default function Province(props) {
+export default function Province() {
 	let params = useParams();
 	let search = useSearch();
 	let mainRef = useRef();

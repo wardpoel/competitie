@@ -1,8 +1,8 @@
-import React, { useLayoutEffect, useMemo, useState } from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 
 import { DateTime } from 'luxon';
 import { getMatches } from 'vttl-api';
-import { useSearch, useData, useResult, useHistory, usePending } from 'react-sprout';
+import { useData, useResult, useHistory, usePending } from 'react-sprout';
 
 import Suspense from '../../views/suspense.jsx';
 import MatchList from '../../views/match-list.jsx';

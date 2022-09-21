@@ -8,7 +8,7 @@ import Bullets from '../../components/bullets.jsx';
 import classnames from '../../utilities/string/classnames.js';
 import useEventListener from '../../hooks/use-event-listener.js';
 
-export default function ClubInfo(props) {
+export default function ClubInfo() {
 	let club = useData();
 	let venueCardRefs = useMemo(() => club.venues.map(() => createRef()), [club.venues]);
 	let venueCardsContainerRef = useRef();

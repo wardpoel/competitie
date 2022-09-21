@@ -1,5 +1,5 @@
 import React from 'react';
-import { useRef, useState, forwardRef } from 'react';
+import { useRef, useState } from 'react';
 
 import useRendered from '../hooks/use-rendered.js';
 import useEventListener from '../hooks/use-event-listener.js';

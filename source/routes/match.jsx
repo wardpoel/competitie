@@ -23,7 +23,6 @@ import IconButton from '../components/icon-button.jsx';
 import ApplicationBar, { ApplicationBarTitle } from '../components/application-bar';
 
 import score from '../vttl/score.js';
-import letter from '../vttl/teams/letter.js';
 import toTitleCase from '../utilities/string/to-title-case.js';
 
 export async function fetchMatch(params, splat) {
@@ -87,7 +86,7 @@ export default function Match() {
 }
 
 function PlayedMatch(props) {
-	let { club, team, match } = props;
+	let { match } = props;
 
 	let history = useHistory();
 	let pending = usePending();
@@ -96,16 +95,16 @@ function PlayedMatch(props) {
 	let [selectedPlayer, setSelectedPlayer] = useState();
 
 	let matchScore = score(match.score);
-	let isHomeMatch;
-	let isAwayMatch;
-	if (club != undefined) {
-		isHomeMatch = match.home.club === club;
-		isAwayMatch = match.away.club === club;
-	}
-	if (team != undefined) {
-		isHomeMatch = isHomeMatch && letter(match.home.team) === team;
-		isAwayMatch = isAwayMatch && letter(match.away.team) === team;
-	}
+	// let isHomeMatch;
+	// let isAwayMatch;
+	// if (club != undefined) {
+	// 	isHomeMatch = match.home.club === club;
+	// 	isAwayMatch = match.away.club === club;
+	// }
+	// if (team != undefined) {
+	// 	isHomeMatch = isHomeMatch && letter(match.home.team) === team;
+	// 	isAwayMatch = isAwayMatch && letter(match.away.team) === team;
+	// }
 
 	function handlePlayerSelect(event, player) {
 		setSelectedPlayer(player);
@@ -154,7 +153,7 @@ function PlayedMatch(props) {
 }
 
 function TeamList(props) {
-	let { club, team, score, captain, games, players, busy, pending, selected, onSelect, onResult } = props;
+	let { team, games, players, busy, pending, selected, onSelect, onResult } = props;
 
 	let hasSelectedPlayer = players.some(player => player === selected);
 	let playerListitemsRender = players.map(function (player) {

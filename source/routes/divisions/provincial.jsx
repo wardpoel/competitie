@@ -6,7 +6,7 @@ import BackButton from '../../components/back-button.jsx';
 import ProvinceList from '../../views/province-list.jsx';
 import ApplicationBar, { ApplicationBarTitle } from '../../components/application-bar.jsx';
 
-export default function Provincial(props) {
+export default function Provincial() {
 	let history = useHistory();
 
 	function handleProvinceSelect(event, province) {
