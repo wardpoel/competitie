@@ -74,7 +74,7 @@ function DivisionsList(props) {
 
 	return (
 		<div className="pb-0-safe">
-			<DivisionList divisions={divisions} {...props} />
+			<DivisionList name="short" divisions={divisions} {...props} />
 		</div>
 	);
 }
