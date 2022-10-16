@@ -6,13 +6,16 @@ import Tabs, { Tab } from '../../components/tabs.jsx';
 import { PublicIcon, StarIcon } from 'material-icons';
 import DivisionsRoot from '../../views/divisions-root.jsx';
 import DivisionsFavorites from '../../views/divisions-favorites.jsx';
+import useLocalStorageState from '../../hooks/use-local-storage-state.js';
 
 export default function Divisions() {
+	let search = useSearch();
 	let navigate = useNavigate();
 
-	let { tab = 'all' } = useSearch();
+	let [tab, setTab] = useLocalStorageState('defaultDivisionTab', search.tab ?? 'all');
 
 	function handleTabChange(event, tab) {
+		setTab(tab);
 		navigate(`?tab=${tab}`, { replace: true });
 	}
 
