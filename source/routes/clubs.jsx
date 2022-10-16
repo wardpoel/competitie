@@ -44,10 +44,14 @@ export default function Clubs() {
 	function handleSearchFormSubmit(event) {
 		event.preventDefault();
 		mainRef.current.focus();
-		setFilterValue(searchValue);
-		if (searchValue !== '') {
-			window.history.replaceState(null, null, `clubs?search=${encodeURIComponent(searchValue)}`);
+
+		let normalizedSearchValue = searchValue.trim();
+		if (normalizedSearchValue !== '') {
+			window.history.replaceState(null, null, `clubs?search=${encodeURIComponent(normalizedSearchValue)}`);
 		}
+
+		setFilterValue(normalizedSearchValue);
+
 		if (data == undefined && clubs == undefined) {
 			fetchClubs().then(setClubs);
 		}
